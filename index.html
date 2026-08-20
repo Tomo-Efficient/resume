@@ -317,27 +317,21 @@
     line-height: 1.1;
   }
 
-  /* ═══ Drawer System ═══ */
+  /* ═══ Section ═══ */
   .drawer {
     border-top: 1px solid var(--line);
-    transition: background 0.3s var(--ease-out);
+    padding-top: clamp(56px, 6vw, 100px);
   }
 
   .drawer:last-of-type {
     border-bottom: 1px solid var(--line);
   }
 
-  .drawer:hover {
-    background: oklch(0.52 0.18 305 / 0.03);
-  }
-
   .drawer-header {
     display: flex;
     align-items: center;
     gap: 20px;
-    padding: clamp(20px, 2.5vw, 32px) 0;
-    cursor: pointer;
-    user-select: none;
+    padding-bottom: clamp(24px, 2.5vw, 36px);
   }
 
   .drawer-header .sec-num {
@@ -350,40 +344,18 @@
     flex: 1;
   }
 
-  .drawer-arrow {
-    font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
-    font-size: 0.8rem;
-    color: var(--faint);
-    transition: transform 0.35s var(--ease-out), color 0.3s;
-  }
-
-  .drawer:hover .drawer-arrow {
-    transform: rotate(180deg);
-    color: var(--primary-strong);
-  }
-
   .drawer-body {
     display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 0.45s var(--ease-out);
-  }
-
-  .drawer:hover .drawer-body {
     grid-template-rows: 1fr;
   }
 
   .drawer-body-inner {
     min-height: 0;
-    overflow: hidden;
-    padding-bottom: 0;
-  }
-
-  .drawer:hover .drawer-body-inner {
-    padding-bottom: clamp(28px, 3vw, 48px);
+    padding-bottom: clamp(48px, 5vw, 88px);
   }
 
   .drawer-content {
-    padding-bottom: clamp(28px, 3vw, 48px);
+    padding-bottom: 0;
   }
 
   /* ═══ Spotlight Panel ═══ */
@@ -494,7 +466,8 @@
     transition: opacity 0.18s var(--ease-out), transform 0.18s var(--ease-out);
   }
 
-  .exp-card:hover .exp-card__hint { opacity: 0; transform: translateY(-4px); }
+  .exp-card:hover .exp-card__hint,
+  .proj-card:hover .exp-card__hint { opacity: 0; transform: translateY(-4px); }
 
   .exp-card__detail {
     display: grid;
@@ -507,7 +480,9 @@
   .exp-card__detail-inner { min-height: 0; overflow: hidden; display: grid; gap: 16px; }
 
   .exp-card:hover .exp-card__detail,
-  .exp-card:focus-within .exp-card__detail {
+  .exp-card:focus-within .exp-card__detail,
+  .proj-card:hover .exp-card__detail,
+  .proj-card:focus-within .exp-card__detail {
     grid-template-rows: 1fr;
     opacity: 1;
     transform: translateY(0);
@@ -591,6 +566,8 @@
 
   .proj-card:nth-child(1) { --rt: translateY(24px) rotate(1deg); }
   .proj-card:nth-child(2) { --rt: translateY(-4px) rotate(-0.8deg); }
+  .proj-card:nth-child(3) { --rt: translateY(16px) rotate(0.5deg); }
+  .proj-card.no-link { cursor: default; }
 
   .proj-card:hover {
     z-index: 5;
@@ -615,15 +592,6 @@
     font-size: 13px; color: var(--muted);
     line-height: 1.6;
   }
-
-  .proj-card .p-link {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
-    font-size: 11px; color: var(--primary-strong);
-    transition: gap 0.18s var(--ease-out);
-  }
-
-  .proj-card:hover .p-link { gap: 10px; }
 
   /* ═══ Education ═══ */
   .edu-section {
@@ -821,13 +789,13 @@
   <div class="hero-orbit">
     <span class="orbit-pos" style="left:0px;top:-260px;animation-delay:2.95s;"><span class="orbit-tag">Data Agent</span></span>
     <span class="orbit-pos" style="left:167px;top:-199px;animation-delay:3.0s;"><span class="orbit-tag">Agent 架构</span></span>
-    <span class="orbit-pos" style="left:256px;top:-45px;animation-delay:3.05s;"><span class="orbit-tag">Vibe Coding</span></span>
-    <span class="orbit-pos" style="left:225px;top:130px;animation-delay:3.1s;"><span class="orbit-tag">统计分析</span></span>
-    <span class="orbit-pos" style="left:89px;top:244px;animation-delay:3.15s;"><span class="orbit-tag">数据建模</span></span>
-    <span class="orbit-pos" style="left:-89px;top:244px;animation-delay:3.2s;"><span class="orbit-tag">Python / SQL</span></span>
-    <span class="orbit-pos" style="left:-225px;top:130px;animation-delay:3.25s;"><span class="orbit-tag">0→1 落地</span></span>
-    <span class="orbit-pos" style="left:-256px;top:-45px;animation-delay:3.3s;"><span class="orbit-tag">需求拆解</span></span>
-    <span class="orbit-pos" style="left:-167px;top:-199px;animation-delay:3.35s;"><span class="orbit-tag">产品设计</span></span>
+    <span class="orbit-pos" style="left:256px;top:-45px;animation-delay:3.05s;"><span class="orbit-tag">RAG 混合检索</span></span>
+    <span class="orbit-pos" style="left:225px;top:130px;animation-delay:3.1s;"><span class="orbit-tag">Prompt 工程</span></span>
+    <span class="orbit-pos" style="left:89px;top:244px;animation-delay:3.15s;"><span class="orbit-tag">统计分析</span></span>
+    <span class="orbit-pos" style="left:-89px;top:244px;animation-delay:3.2s;"><span class="orbit-tag">数据建模</span></span>
+    <span class="orbit-pos" style="left:-225px;top:130px;animation-delay:3.25s;"><span class="orbit-tag">Python / SQL</span></span>
+    <span class="orbit-pos" style="left:-256px;top:-45px;animation-delay:3.3s;"><span class="orbit-tag">指标体系</span></span>
+    <span class="orbit-pos" style="left:-167px;top:-199px;animation-delay:3.35s;"><span class="orbit-tag">A/B 测试</span></span>
   </div>
 
   <div class="hero-core">
@@ -846,7 +814,6 @@
     <div class="drawer-header">
       <span class="sec-num">01 / EXPERIENCE</span>
       <h2 class="sec-title">实习经历</h2>
-      <span class="drawer-arrow">↓</span>
     </div>
     <div class="drawer-body">
       <div class="drawer-body-inner">
@@ -854,60 +821,63 @@
           <div class="exp-grid">
             <div class="exp-card swarm" data-swarm style="--fx: -50px; --fy: 60px; --fr: -6deg; --fd: 0s;">
               <div class="exp-card__co"><span>招商金科</span><span>2026.03 — 06</span></div>
-              <div class="exp-card__title">AI 数据空间（Data Agent）</div>
-              <div class="exp-card__sub">产品经理实习生 · 央企金融科技平台 · 独立搭建 Agent 循环</div>
+              <div class="exp-card__title">招商金科</div>
+              <div class="exp-card__sub">AI产品经理 · 央企金融科技平台 · 规划到灰度上线</div>
               <div class="metrics">
-                <div class="metric"><strong>85%+</strong><span>SQL 准确率</span></div>
+                <div class="metric"><strong>85%+</strong><span>SQL 生成准确率</span></div>
                 <div class="metric"><strong>6h→30s</strong><span>分析周期压缩</span></div>
-                <div class="metric"><strong>～1000</strong><span>ETL 脚本覆盖字段</span></div>
+                <div class="metric"><strong>+90%</strong><span>数据分析效率</span></div>
               </div>
               <span class="exp-card__hint">悬停查看详情</span>
               <div class="exp-card__detail">
                 <div class="exp-card__detail-inner">
                   <ul class="bullets">
-                    <li><span class="b-title">调研与架构设计</span><span class="b-body">主导调研 OpenAI Data Agent 方案，研究六层上下文引擎架构，结合集团技术现状，提出从现有 ETL 脚本反向提取业务语义的技术路线，设计工作台式产品架构，推动对话式交互向任务驱动工作流模式转变。</span></li>
-                    <li><span class="b-title">Agent 构建</span><span class="b-body">使用 Claude Code 独立搭建 Agent 循环，基于 ReAct 模式规划"任务拆解-工具调用-自我反思-结果输出"闭环，针对 SQL 生成场景增加 Query Checking 自查节点，将准确率稳定在 85% 以上。</span></li>
-                    <li><span class="b-title">落地验证与效果评估</span><span class="b-body">推动工具在部门内小范围试用，组织业务与数据开发人员接入真实业务场景，覆盖 10+ 个 ETL 脚本、近千个字段。将单次业务分析周期从 6 小时压缩至 30 秒，业务人员可独立完成分析。</span></li>
+                    <li><span class="b-title">业务规划与方案设计</span><span class="b-body">针对集团业务人员"用数难"的问题，负责智能问数 Agent 的产品规划。结合现有 ETL 资源与合规要求，制定基于反向提取业务语义的落地路线，设计任务驱动型工作流，实现自然语言转 SQL，提升业务线整体数据分析效率 90%。</span></li>
+                    <li><span class="b-title">中台流程优化</span><span class="b-body">针对数据服务中台管控不足的问题，走访各数据条线，将跨部门协作流程拆分为需求与任务双流水线，制定定制化节点与标准化交付物规范，减少流程卡点，数据开发整体耗时降低 25%。</span></li>
+                    <li><span class="b-title">项目管理与跨部门协同</span><span class="b-body">统筹研发、算法、测试等跨部门团队，引入 Scrum 敏捷管理机制，主持需求评审并排期功能优先级，建立进度追踪机制，保障项目 1 个月内完成开发与灰度上线，团队协作效率提升 30%。</span></li>
+                    <li><span class="b-title">效果验证与体验优化</span><span class="b-body">建立灰度测试与反馈收集机制，组织业务人员接入 10+ 个真实 ETL 脚本验证。针对模型幻觉，协同算法团队制定 SQL 自查校验规则，优化 Prompt 策略，设计 RAG 混合检索与问题复杂度分流机制进一步抑制幻觉，SQL 生成准确率稳定在 85% 以上。</span></li>
                   </ul>
                 </div>
               </div>
             </div>
             <div class="exp-card swarm" data-swarm style="--fx: -20px; --fy: -30px; --fr: 4deg; --fd: 0.08s;">
-              <div class="exp-card__co"><span>招商金科</span><span>2026.03 — 06</span></div>
-              <div class="exp-card__title">数据服务中台 — 开发流水线</div>
-              <div class="exp-card__sub">产品经理实习生 · 央企金融科技平台 · 从 0 到 1 上线</div>
+              <div class="exp-card__co"><span>Moodytiger</span><span>2025.10 — 12</span></div>
+              <div class="exp-card__title">Moodytiger</div>
+              <div class="exp-card__sub">AI数据产品经理 · 服饰品牌 · 对接小红书营销投放业务</div>
               <div class="metrics">
-                <div class="metric"><strong>1 个月</strong><span>0→1 上线</span></div>
-                <div class="metric"><strong>-25%</strong><span>开发耗时降低</span></div>
-                <div class="metric"><strong>+30%</strong><span>协作效率提升</span></div>
+                <div class="metric"><strong>+50%</strong><span>ROI 评估效率</span></div>
+                <div class="metric"><strong>600h</strong><span>年化节省工时</span></div>
+                <div class="metric"><strong>85%</strong><span>平台活跃使用率</span></div>
               </div>
               <span class="exp-card__hint">悬停查看详情</span>
               <div class="exp-card__detail">
                 <div class="exp-card__detail-inner">
                   <ul class="bullets">
-                    <li><span class="b-title">需求调研与分析</span><span class="b-body">深入调研各数据条线业务人员，梳理日常工作流程与核心痛点，汇总并整理流程卡点、交付物管理、效能统计等需求，完成分级排期。明确流程节点新增、交付物标准化、效能看板等核心功能模块。</span></li>
-                    <li><span class="b-title">产品设计与落地推动</span><span class="b-body">结合调研结果输出 PRD 文档，完成 Axure 原型设计，组织多次需求评审对齐需求，全程跟进开发进度，协调研发、测试资源，保障项目推进。仅用时一个月完成模块从 0 到 1 上线。</span></li>
-                    <li><span class="b-title">复盘迭代与价值提升</span><span class="b-body">模块上线后持续收集用户反馈，针对流程节点流转规则进行调整优化，完成版本迭代。数据开发整体耗时降低约 25%，团队协作效率提升约 30%。</span></li>
+                    <li><span class="b-title">指标体系搭建</span><span class="b-body">针对数据口径不一及人工汇总慢的问题，基于 AARRR 模型拆解"达人价值评估、内容效果分析、销售转化归因"三大模块，构建"曝光-互动-引流-转化-销售"数据分析框架，统一全平台统计口径，营销投放 ROI 评估效率提升 50%。</span></li>
+                    <li><span class="b-title">产品设计与需求交付</span><span class="b-body">使用 Figma 产出多渠道概览与达人合作分析原型，撰写 PRD 明确数据模块交互逻辑，组织需求评审对齐细节。引入 Vibe Coding 模式完成 Demo 开发，原型到 Demo 的交付周期缩短 40%。</span></li>
+                    <li><span class="b-title">数据整合与归因设计</span><span class="b-body">协同数据开发团队设计多源数据整合与实时监控方案，制定销售转化归因逻辑，解决 ROI 评估滞后问题。上线后实现跨渠道数据实时监控，年化节省业务团队人工汇总时间 600 小时。</span></li>
+                    <li><span class="b-title">产品运营与迭代</span><span class="b-body">收集营销团队使用反馈，优化达人筛选与笔记效果分析展示逻辑，引入 AI 辅助达人智能推荐与内容效果归因。平台内部活跃使用率 85%，助力整体投放 ROI 超越预设目标 20%。</span></li>
                   </ul>
                 </div>
               </div>
             </div>
             <div class="exp-card swarm" data-swarm style="--fx: 50px; --fy: 70px; --fr: 5deg; --fd: 0.16s;">
               <div class="exp-card__co"><span>东华软件</span><span>2024.07 — 09</span></div>
-              <div class="exp-card__title">会员分层与活跃度监控报表平台</div>
-              <div class="exp-card__sub">产品经理实习生 · 国内 500 强 · 对接用户运营部门</div>
+              <div class="exp-card__title">东华软件</div>
+              <div class="exp-card__sub">AI数据产品经理 · 国内 500 强 · 对接用户运营与市场运营</div>
               <div class="metrics">
-                <div class="metric"><strong>+40%</strong><span>策略效率提升</span></div>
+                <div class="metric"><strong>+40%</strong><span>策略制定效率</span></div>
                 <div class="metric"><strong>+25%</strong><span>识别准确率</span></div>
-                <div class="metric"><strong>RFM</strong><span>模型驱动</span></div>
+                <div class="metric"><strong>500h</strong><span>年化节省工时</span></div>
               </div>
               <span class="exp-card__hint">悬停查看详情</span>
               <div class="exp-card__detail">
                 <div class="exp-card__detail-inner">
                   <ul class="bullets">
-                    <li><span class="b-title">需求调研与分析</span><span class="b-body">深度对接用户运营部门，对现有业务场景与会员行为数据进行汇总、梳理与分析，明确核心需求为依据会员价值与活跃度状态搭建自动分层规则，同时确定消费时效动态分层、渠道及区域多维度筛选查询等关键产品需求。</span></li>
-                    <li><span class="b-title">数据建模与落地</span><span class="b-body">基于 RFM 模型核心思想，结合会员消费间隔、频次、金额等维度，搭建标准化指标体系并统一业务口径；在此基础上，结合业务实际场景设计会员生命周期与活跃度分层模型，全程跟进数据及报表开发落地。</span></li>
-                    <li><span class="b-title">项目成果与价值提升</span><span class="b-body">平台上线后持续收集运营反馈，大幅简化会员数据分析工作。会员运营策略制定效率提升约 40%，高价值会员识别准确率提升 25%，有效助力运营团队达成会员复购与留存提升目标。</span></li>
+                    <li><span class="b-title">业务需求梳理</span><span class="b-body">对接品牌用户运营与市场运营团队，梳理会员行为数据流转链路与看数需求，建立需求池统一管理。通过用户访谈与数据分析明确动态分层、多维度筛选等核心诉求，挖掘智能分层、流失预警、复购预测等 AI 应用场景，运用价值-成本矩阵排序优先级，使运营策略制定效率提升 40%。</span></li>
+                    <li><span class="b-title">数据策略与口径统一</span><span class="b-body">协同业务部门确立核心指标计算规则，输出数据指标体系字典。设计核心指标与辅助指标分层展示策略，基于会员消费行为数据构建机器学习模型，实现高价值会员智能识别与自动分层，识别准确率提升 25%。</span></li>
+                    <li><span class="b-title">产品落地与资源协调</span><span class="b-body">跟进数据建模与前端报表自动化开发，推动机器学习分层模型在技术侧落地，协调数据开发与前端资源，引入 AI 异常检测机制自动识别逻辑冲突与数据异常。平台上线后实现会员数据实时监控与智能预警，年化节省人工统计工时 500 小时。</span></li>
+                    <li><span class="b-title">数据反馈与体验优化</span><span class="b-body">建立用户反馈收集机制，追踪运营团队使用体验与核心指标。针对初期看板信息过载问题，调整指标优先级，优化页面视觉与交互逻辑，规划 AI 指标智能解读与个性化推荐能力，整体用户满意度提升 30%。</span></li>
                   </ul>
                 </div>
               </div>
@@ -925,27 +895,66 @@
     <div class="drawer-header">
       <span class="sec-num">02 / PROJECTS</span>
       <h2 class="sec-title">项目经历</h2>
-      <span class="drawer-arrow">↓</span>
     </div>
     <div class="drawer-body">
       <div class="drawer-body-inner">
         <div class="drawer-content">
           <div class="proj-grid">
-            <div class="proj-card swarm" data-swarm style="--fx: 60px; --fy: 30px; --fr: 5deg; --fd: 0s;" onclick="window.open('https://mimic-research-agent.onrender.com','_blank')">
-              <div class="p-title">AI 统计学家</div>
-              <div class="p-meta">香港人工智能与科学研究院 · 项目负责人 · 2026.06 — 08</div>
-              <div class="p-desc">
-                针对科研人员"选题难→验证慢→撰写长"三大痛点，主导设计四阶段 Pipeline Agent 架构（Discovery→Statistician→Reporter）。采用 Tool Calling 封装统计函数库，Agent 自主选择检验方案。MVP 服务 10+ 科研用户，全流程从数周压缩至 30 分钟。
-              </div>
-              <span class="p-link">点击查看项目 →</span>
-            </div>
-            <div class="proj-card swarm" data-swarm style="--fx: -50px; --fy: -15px; --fr: -4deg; --fd: 0.1s;" onclick="window.open('https://th5kmvfsfz.coze.site/','_blank')">
-              <div class="p-title">AI 面试辅导助手</div>
+            <div class="proj-card no-link swarm" data-swarm style="--fx: 60px; --fy: 30px; --fr: 5deg; --fd: 0s;">
+              <div class="p-title">AI 面试辅导</div>
               <div class="p-meta">个人项目 · 项目负责人 · 2026.02 — 04</div>
               <div class="p-desc">
-                针对求职人群面试备考痛点，独立完成 0 到 1 产品规划。提炼快速备战、深度准备两类需求，规划简历解析、AI 出题、对话模拟、个人题库四大功能模块。面试筹备时长缩短 50%，验证轻量化 AI 工具闭环设计思路。
+                针对求职人群面试备考缺乏个性化反馈的痛点，完成 AI SaaS 产品规划。产品投入常态化使用，帮助用户将面试筹备时长缩短 50%。
               </div>
-              <span class="p-link">点击查看项目 →</span>
+              <span class="exp-card__hint">悬停查看详情</span>
+              <div class="exp-card__detail">
+                <div class="exp-card__detail-inner">
+                  <ul class="bullets">
+                    <li><span class="b-title">产品定位与架构</span><span class="b-body">规划简历解析、AI 出题、对话模拟、个人题库四大功能模块，输出 PRD 与交互原型；基于 LangGraph 状态机编排 Agent 工作流，以有向图建模节点与条件边路由。</span></li>
+                    <li><span class="b-title">RAG 知识库构建</span><span class="b-body">搭建结构化面试题库与行业知识库，设计文档解析与语义检索规则，补充通用大模型垂直领域知识。</span></li>
+                    <li><span class="b-title">多轮对话与追问机制</span><span class="b-body">设计"简历+JD 解析→定制出题→语音作答（STT）→智能追问"交互链路，通过条件边路由实现回答质量判断（浅层追问 / 深入推进）。</span></li>
+                    <li><span class="b-title">Prompt 与上下文管理</span><span class="b-body">设计多轮对话记忆机制与上下文管理策略，通过 Prompt 工程优化 AI 面试官提问逻辑，设置三轮差异化面试官人格（同级 / 资深 / 直属经理）。</span></li>
+                    <li><span class="b-title">评分与数据迭代</span><span class="b-body">建立多维度实时打分与晋级机制（≥70 分晋级），生成结构化面评报告；建立数据埋点分析用户行为，基于真实使用数据迭代交互逻辑。</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="proj-card no-link swarm" data-swarm style="--fx: -50px; --fy: -15px; --fr: -4deg; --fd: 0.1s;">
+              <div class="p-title">智能问数 Agent（自然语言转SQL）</div>
+              <div class="p-meta">项目负责人 · 2025.10 — 2026.01</div>
+              <div class="p-desc">
+                支撑业务人员以自然语言问数开展数据分析，构建从"任务-数据-技能-结果"的工作流。验证了技术方案可行性，SQL 生成准确率稳定在 85% 以上，单次业务分析周期从 6 小时缩短至 30 秒。
+              </div>
+              <span class="exp-card__hint">悬停查看详情</span>
+              <div class="exp-card__detail">
+                <div class="exp-card__detail-inner">
+                  <ul class="bullets">
+                    <li><span class="b-title">架构规划</span><span class="b-body">调研 OpenAI Data Agent 方案，结合技术现状提出反向提取业务语义的落地路线，规划"登录鉴权→Chat 问数→SQL 生成→文字+数据+图表输出"的产品流程。</span></li>
+                    <li><span class="b-title">数据与检索治理</span><span class="b-body">设计"元数据+字段语义澄清+脏数据说明、表关系+编码对齐映射、业务数据解释+同义词词典、指标平台+公式化知识库"四层数据准备体系；基于向量召回与倒排索引双路混合检索，将检索结果作为 evidence 拼入 Prompt，提升 SQL 生成准确率。</span></li>
+                    <li><span class="b-title">Agent 构建</span><span class="b-body">基于 Claude Code 搭建 Agent 循环，采用 ReAct 模式规划"任务拆解-工具调用-自我反思-结果输出"流程，并按问题复杂度分流——简单查询用 few-shot 改写、中等查询用 Decomposition+CoT 拆解、复杂查询走 Agent Loop。</span></li>
+                    <li><span class="b-title">安全与评估</span><span class="b-body">增加 Query Checking 自查节点降低语法错误率，建立安全护栏（只读账号、AST 解析拒绝 DROP/DELETE、自动 limit、敏感字段脱敏）；建立"路径正确性 / SQL 正确性 / 答案正确性"三层评估机制，组织数据开发人员接入 10+ 个真实 ETL 脚本、近千个字段进行灰度测试。</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="proj-card no-link swarm" data-swarm style="--fx: 30px; --fy: 40px; --fr: 2deg; --fd: 0.2s; grid-column: 1 / -1;">
+              <div class="p-title">会员分层与活跃度监控报表平台</div>
+              <div class="p-meta">项目负责人 · 2025.02 — 2025.06</div>
+              <div class="p-desc">
+                搭建自动化报表平台，实现指标实时统计，标准化分析口径、提升数据时效性。平台上线后简化了数据分析工作，高价值会员识别准确率提升 25%。
+              </div>
+              <span class="exp-card__hint">悬停查看详情</span>
+              <div class="exp-card__detail">
+                <div class="exp-card__detail-inner">
+                  <ul class="bullets">
+                    <li><span class="b-title">需求梳理</span><span class="b-body">深度对接会员运营部门，梳理人工整理效率低、口径不统一、分层自动化缺失等痛点，确定动态分层与多维度筛选核心需求。</span></li>
+                    <li><span class="b-title">指标体系设计</span><span class="b-body">基于 RFM 模型，结合会员消费间隔、频次、金额等维度，搭建标准化指标体系，统一全平台指标口径。</span></li>
+                    <li><span class="b-title">分层逻辑应用</span><span class="b-body">设计会员生命周期与活跃度分层模型，通过后台预计算常用分层结果，降低查询压力。</span></li>
+                    <li><span class="b-title">原型设计</span><span class="b-body">完成报表平台产品方案设计与高保真原型输出（图表设计 / 页面布局 / 交互设计），规划多维度筛选查询功能。</span></li>
+                    <li><span class="b-title">数据落地跟进</span><span class="b-body">跟进数据仓库与前端报表自动化开发，确保分层规则准确可用。</span></li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -960,7 +969,6 @@
     <div class="drawer-header">
       <span class="sec-num">03 / EDUCATION</span>
       <h2 class="sec-title">教育背景</h2>
-      <span class="drawer-arrow">↓</span>
     </div>
     <div class="drawer-body">
       <div class="drawer-body-inner">
@@ -968,14 +976,13 @@
           <div class="edu-grid">
             <div class="spotlight edu-panel swarm" data-swarm style="--fx: -30px; --fy: 50px; --fr: -3deg; --fd: 0s;">
               <div class="edu-school">香港城市大学（QS Top52）</div>
-              <div class="edu-degree">生物统计学 硕士</div>
+              <div class="edu-degree">统计学（生物方向） 硕士</div>
               <span class="edu-period">2025.09 — 2026.10</span>
               <div class="edu-tags">
                 <span class="edu-tag">统计编程 Python/R</span>
                 <span class="edu-tag">统计机器学习与神经网络</span>
                 <span class="edu-tag">概率论与数理统计</span>
                 <span class="edu-tag">时间序列分析</span>
-                <span class="edu-tag">分类数据分析</span>
               </div>
             </div>
             <div class="spotlight edu-panel swarm" data-swarm style="--fx: 30px; --fy: 50px; --fr: 3deg; --fd: 0.1s;">
@@ -986,11 +993,9 @@
                 <span class="edu-tag">机器学习</span>
                 <span class="edu-tag">神经网络与深度学习</span>
                 <span class="edu-tag">数据建模与分析</span>
-                <span class="edu-tag">Python/Java Web 开发</span>
-                <span class="edu-tag">大数据集群技术</span>
-                <span class="edu-tag">前端开发框架</span>
-                <span class="edu-tag">校优秀毕业生</span>
-                <span class="edu-tag">两项软著</span>
+                <span class="edu-tag">大数据计算集群技术</span>
+                <span class="edu-tag">软著《关系抽取与实体识别模型拓展迁移系统》</span>
+                <span class="edu-tag">软著《数据可视化及信息检索与问答系统》</span>
               </div>
             </div>
           </div>
@@ -1005,35 +1010,34 @@
   <div class="shell">
     <div class="drawer-header">
       <span class="sec-num">04 / SKILLS</span>
-      <h2 class="sec-title">技能与兴趣</h2>
-      <span class="drawer-arrow">↓</span>
+      <h2 class="sec-title">个人特质</h2>
     </div>
     <div class="drawer-body">
       <div class="drawer-body-inner">
         <div class="drawer-content">
           <div class="skill-blocks">
             <div class="spotlight skill-block swarm" data-swarm style="--fx: -20px; --fy: 30px; --fr: -2deg; --fd: 0s;">
-              <h4>语言能力</h4>
+              <h4>业务能力</h4>
               <div class="skill-text">
-                英语六级 / 雅思 6.0（阅读 7.0），英语可作为主要工作语言。普通话一级乙等。
+                熟悉 AI 产品规划流程，能独立撰写 PRD、绘制原型并设计 A/B 测试方案；理解 LLM 基础原理，熟悉 Agent 工作流（ReAct / Tool Calling）与 Prompt 工程。
               </div>
             </div>
             <div class="spotlight skill-block swarm" data-swarm style="--fx: 20px; --fy: 30px; --fr: 2deg; --fd: 0.08s;">
-              <h4>计算机 & AI</h4>
+              <h4>分析方法</h4>
               <div class="skill-text">
-                熟悉 Python / SQL / R 等语言工具，了解机器学习与大模型技术栈。擅长使用 Claude Code、Codex、Coze 等 AI 工具制作产品 Demo。
+                熟悉 MVP 构建与敏捷项目管理（Scrum）；掌握数据指标体系搭建、RFM 数据建模、漏斗分析等数据产品分析方法。
               </div>
             </div>
             <div class="spotlight skill-block swarm" data-swarm style="--fx: -15px; --fy: 20px; --fr: -1deg; --fd: 0.16s;">
-              <h4>产品设计工具</h4>
+              <h4>技术栈</h4>
               <div class="skill-text">
-                掌握 Axure / Figma / 墨刀（原型设计）、Xmind / ProcessOn（需求梳理）、FineBI / QuickBI（数据可视化）。
+                熟练使用 Axure / Figma（原型设计）、Xmind / Visio（流程建模）；掌握 SQL、Python（数据分析）与 CLI 命令行工具；熟悉 LangChain / LangGraph、RAG 与 MCP（模型上下文协议）等 Agent 开发框架。
               </div>
             </div>
             <div class="spotlight skill-block swarm" data-swarm style="--fx: 15px; --fy: 20px; --fr: 1deg; --fd: 0.24s;">
-              <h4>兴趣爱好</h4>
+              <h4>语言能力</h4>
               <div class="skill-text">
-                篮球（校园杯赛四强）· 足球（校园杯赛四强）· 健身 · 摄影
+                英语六级（可作为工作语言），普通话（母语）。
               </div>
             </div>
           </div>
@@ -1049,7 +1053,6 @@
     <div class="drawer-header">
       <span class="sec-num">05 / CONTACT</span>
       <h2 class="sec-title">联系我</h2>
-      <span class="drawer-arrow">↓</span>
     </div>
     <div class="drawer-body">
       <div class="drawer-body-inner">
@@ -1057,14 +1060,14 @@
           <div class="contact-grid">
             <div>
               <p class="contact-text">
-                2027 届应届生，AI 产品方向。热衷于用 AI 与数据驱动产品创新，期待与优秀的团队一起创造价值。
+                统计学 + 数据科学背景的 AI 数据产品经理，懂大模型底层原理，有用户思维与产品思维，有成本意识。期待用 AI 与数据驱动产品创新，与优秀的团队一起创造价值。
               </p>
             </div>
             <div class="spotlight contact-panel swarm" data-swarm style="--fx: 40px; --fy: 20px; --fr: 2deg; --fd: 0.1s;">
               <a href="mailto:s18538218915@163.com" class="contact-row">s18538218915@163.com</a>
               <span class="contact-row" style="color: var(--faint);">18538218915</span>
               <div class="contact-footer">
-                <span>© 2027 石浩田</span>
+                <span>© 2026 石浩田</span>
                 <span>AI Product Manager</span>
               </div>
             </div>
@@ -1076,7 +1079,7 @@
 </div>
 
 <footer>
-  <p>石浩田 · AI Product Manager · 2027</p>
+  <p>石浩田 · AI Product Manager · 2026</p>
 </footer>
 
 <script>
@@ -1121,20 +1124,17 @@
     });
   });
 
-  // ═══ Swarm landing on drawer hover ═══
-  const openedDrawers = new Set();
-
-  document.querySelectorAll('.drawer').forEach(drawer => {
-    drawer.addEventListener('mouseenter', () => {
-      const id = drawer.id;
-      if (openedDrawers.has(id)) return;
-      openedDrawers.add(id);
-
-      drawer.querySelectorAll('.swarm').forEach(el => {
-        el.classList.add('landed');
-      });
+  // ═══ Swarm landing when scrolled into view ═══
+  const swarmIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('landed');
+        swarmIO.unobserve(entry.target);
+      }
     });
-  });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.swarm').forEach(el => swarmIO.observe(el));
 
   // ═══ Background canvas ═══
   const canvas = document.getElementById('bg-canvas');
