@@ -604,6 +604,9 @@
     transition: color 0.18s var(--ease-out), border-color 0.18s var(--ease-out);
   }
   .proj-card .p-link:hover { color: var(--ink); border-color: var(--ink); }
+  .proj-card .p-links { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .proj-card .p-link.is-secondary { color: var(--muted); border-bottom-color: transparent; }
+  .proj-card .p-link.is-secondary:hover { color: var(--ink); }
 
   /* ═══ Education ═══ */
   .edu-section {
@@ -953,7 +956,10 @@
               <div class="p-desc">
                 面向临床研究者的 MIMIC-IV 数据分析 Agent：把数据清洗、选题、队列、统计和 IMRAD 报告串成一条可执行的工作流，输入原始 CSV 后产出研究草稿。
               </div>
-              <a class="p-link" href="https://github.com/Tomo-Efficient/RWD-Research-Agent" target="_blank" rel="noopener">查看代码 <span aria-hidden="true">↗</span></a>
+              <div class="p-links">
+                <a class="p-link" href="https://mimic-research-agent.onrender.com/" target="_blank" rel="noopener">打开项目网站 <span aria-hidden="true">↗</span></a>
+                <a class="p-link is-secondary" href="https://github.com/Tomo-Efficient/RWD-Research-Agent" target="_blank" rel="noopener">查看代码 <span aria-hidden="true">↗</span></a>
+              </div>
               <div class="exp-card__detail">
                 <div class="exp-card__detail-inner">
                   <ul class="bullets">
@@ -971,7 +977,10 @@
               <div class="p-desc">
                 每天生成一个虚构身份和 3 个线下任务，把日常观察变成可完成、可记录、可分享的小练习。
               </div>
-              <a class="p-link" href="https://github.com/Tomo-Efficient/today-role" target="_blank" rel="noopener">查看代码 <span aria-hidden="true">↗</span></a>
+              <div class="p-links">
+                <a class="p-link" href="https://tomo-efficient.github.io/today-role/" target="_blank" rel="noopener">打开项目网站 <span aria-hidden="true">↗</span></a>
+                <a class="p-link is-secondary" href="https://github.com/Tomo-Efficient/today-role" target="_blank" rel="noopener">查看代码 <span aria-hidden="true">↗</span></a>
+              </div>
               <div class="exp-card__detail">
                 <div class="exp-card__detail-inner">
                   <ul class="bullets">
