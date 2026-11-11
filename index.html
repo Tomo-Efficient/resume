@@ -593,6 +593,18 @@
     line-height: 1.6;
   }
 
+  .proj-card .p-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    width: max-content; position: relative; z-index: 2;
+    font-size: 13px; font-weight: 600; white-space: nowrap;
+    color: var(--primary-strong);
+    text-decoration: none;
+    border-bottom: 1px solid oklch(0.62 0.20 305 / 0.45);
+    padding-bottom: 2px;
+    transition: color 0.18s var(--ease-out), border-color 0.18s var(--ease-out);
+  }
+  .proj-card .p-link:hover { color: var(--ink); border-color: var(--ink); }
+
   /* ═══ Education ═══ */
   .edu-section {
     padding: clamp(80px, 8vw, 130px) 0;
@@ -906,7 +918,7 @@
               <div class="p-desc">
                 支撑业务人员通过自然语言问数开展数据分析，构建“任务-数据-技能-结果”的工作流，提升分析效率。验证了技术方案可行性，SQL 运行答案正确率稳定在 85% 以上，单次业务分析周期从 6 小时缩短至 30 秒。
               </div>
-              <span class="exp-card__hint">悬停查看详情</span>
+              <a class="p-link" href="https://tomo-efficient.github.io/smart-query-agent/" target="_blank" rel="noopener">打开项目网站 <span aria-hidden="true">↗</span></a>
               <div class="exp-card__detail">
                 <div class="exp-card__detail-inner">
                   <ul class="bullets">
@@ -924,7 +936,7 @@
               <div class="p-desc">
                 针对求职人群面试备考缺乏个性化反馈的痛点，完成 AI 面试辅导产品的规划。产品投入常态化使用，帮助用户将全套面试准备材料产出耗时缩短 40%。
               </div>
-              <span class="exp-card__hint">悬停查看详情</span>
+              <a class="p-link" href="https://mockmirror.onrender.com/" target="_blank" rel="noopener">打开项目网站 <span aria-hidden="true">↗</span></a>
               <div class="exp-card__detail">
                 <div class="exp-card__detail-inner">
                   <ul class="bullets">
