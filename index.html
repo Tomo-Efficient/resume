@@ -972,10 +972,10 @@
               </div>
             </div>
             <div class="proj-card no-link swarm" data-swarm style="--fx: -45px; --fy: 25px; --fr: -3deg; --fd: 0.2s;">
-              <div class="p-title">今日角色（Today Role）</div>
+              <div class="p-title">重开么（角色盲盒）</div>
               <div class="p-meta">个人项目 · 独立开发 · 2026.01</div>
               <div class="p-desc">
-                每天生成一个虚构身份和 3 个线下任务，把日常观察变成可完成、可记录、可分享的小练习。
+                每天开一个角色盲盒，用陌生人的眼睛过一天。24 个角色、3 个零成本任务，写心得、看社区、生成分享图。
               </div>
               <div class="p-links">
                 <a class="p-link" href="https://tomo-efficient.github.io/today-role/" target="_blank" rel="noopener">打开项目网站 <span aria-hidden="true">↗</span></a>
@@ -984,10 +984,10 @@
               <div class="exp-card__detail">
                 <div class="exp-card__detail-inner">
                   <ul class="bullets">
-                    <li><span class="b-title">产品机制</span><span class="b-body">内置 10 个角色、10 类主题，每个角色 3 个任务；用 userId + 日期做确定性哈希，同一用户当天固定 4 个角色序列，最多换 3 次，避免每天重复。</span></li>
-                    <li><span class="b-title">记录与激励</span><span class="b-body">支持任务勾选、逐条文字心得、连续天数、完成任务数和体验角色数；设置初体验、3 天 / 7 天连续、10 个任务、5 个角色、完美一日共 6 个成就。</span></li>
-                    <li><span class="b-title">分享与存储</span><span class="b-body">用 html2canvas 把角色、完成进度和心得生成分享图；进度和成就保存在 localStorage，不依赖后端，打开即用。</span></li>
-                    <li><span class="b-title">技术实现</span><span class="b-body">Next.js 14 + TypeScript + Tailwind + framer-motion，移动端优先；每日序列由日期和用户 ID 决定，同一天刷新不会换角色。</span></li>
+                    <li><span class="b-title">角色与每日机制</span><span class="b-body">内置 24 个角色，每个角色 3 个线下任务；按 userId + 日期确定性随机，同一用户同一天角色固定；每天可换一次角色，换之前确认，避免清空当天心得。</span></li>
+                    <li><span class="b-title">任务与记录</span><span class="b-body">任务展开后给出提示语，可以写心得提交，也可以跳过直接完成；记录连续天数、完成任务数、体验角色数和 6 个成就；体验历史按角色回看完成情况与心得。</span></li>
+                    <li><span class="b-title">分享与社区</span><span class="b-body">Canvas 直接绘制 1080×1440 分享图，支持下载和三套配色；交流社区含全部分享、热门角色榜、点赞和评论；角色工坊可以创建自定义角色并直接使用。</span></li>
+                    <li><span class="b-title">技术与数据</span><span class="b-body">React 18 + TypeScript + Vite + Tailwind CSS + lucide-react；支持登录、注册或跳过登录，进度、成就和社区内容存在 localStorage，不依赖后端。</span></li>
                   </ul>
                 </div>
               </div>
