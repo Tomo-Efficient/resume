@@ -947,6 +947,42 @@
                 </div>
               </div>
             </div>
+            <div class="proj-card no-link swarm" data-swarm style="--fx: 40px; --fy: 45px; --fr: 3deg; --fd: 0.15s;">
+              <div class="p-title">RWD Research Agent（临床研究 Agent）</div>
+              <div class="p-meta">个人项目 · 独立开发 · 2026.07 — 2026.08</div>
+              <div class="p-desc">
+                面向临床研究者的 MIMIC-IV 数据分析 Agent：把数据清洗、选题、队列、统计和 IMRAD 报告串成一条可执行的工作流，输入原始 CSV 后产出研究草稿。
+              </div>
+              <a class="p-link" href="https://github.com/Tomo-Efficient/RWD-Research-Agent" target="_blank" rel="noopener">查看代码 <span aria-hidden="true">↗</span></a>
+              <div class="exp-card__detail">
+                <div class="exp-card__detail-inner">
+                  <ul class="bullets">
+                    <li><span class="b-title">研究流程</span><span class="b-body">拆成数据探索、选题、队列、统计、报告五段，每段定义输入输出与停止条件；报告缺少上游文件时直接停止，并指出应由哪个 Skill 生成；项目状态可持久化，支持中断后续跑。</span></li>
+                    <li><span class="b-title">数据与选题</span><span class="b-body">基于 MIMIC-IV 脓毒症 ICU 队列，把 1.42 亿行 chartevents 清洗为 2,181 万行，另处理 636 万行诊断与 1,223 万行检验；构建 50 个候选选题池，按创新性、可验证性、临床意义、统计可行性、发表潜力和风险六维评分，分批展示 Top 10。</span></li>
+                    <li><span class="b-title">统计与证据</span><span class="b-body">按研究目的和变量结构匹配统计方法，执行前校验样本量、缺失率、正态性、VIF 和 PH 假设；统计代码只调用预验证模板，不让模型自由生成；支持 PubMed 文献检索、证据 gap 矩阵和论文复现。</span></li>
+                    <li><span class="b-title">Agent 与报告</span><span class="b-body">Flask + DeepSeek tool calling，6 个工具覆盖扫描、选题、文献、队列、统计和报告，SSE 推送执行进度；报告按 IMRAD / STROBE 生成 Table 1、KM 曲线、森林图、ROC 和 DCA，输出 Markdown / Word / PDF。</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="proj-card no-link swarm" data-swarm style="--fx: -45px; --fy: 25px; --fr: -3deg; --fd: 0.2s;">
+              <div class="p-title">今日角色（Today Role）</div>
+              <div class="p-meta">个人项目 · 独立开发 · 2026.01</div>
+              <div class="p-desc">
+                每天生成一个虚构身份和 3 个线下任务，把日常观察变成可完成、可记录、可分享的小练习。
+              </div>
+              <a class="p-link" href="https://github.com/Tomo-Efficient/today-role" target="_blank" rel="noopener">查看代码 <span aria-hidden="true">↗</span></a>
+              <div class="exp-card__detail">
+                <div class="exp-card__detail-inner">
+                  <ul class="bullets">
+                    <li><span class="b-title">产品机制</span><span class="b-body">内置 10 个角色、10 类主题，每个角色 3 个任务；用 userId + 日期做确定性哈希，同一用户当天固定 4 个角色序列，最多换 3 次，避免每天重复。</span></li>
+                    <li><span class="b-title">记录与激励</span><span class="b-body">支持任务勾选、逐条文字心得、连续天数、完成任务数和体验角色数；设置初体验、3 天 / 7 天连续、10 个任务、5 个角色、完美一日共 6 个成就。</span></li>
+                    <li><span class="b-title">分享与存储</span><span class="b-body">用 html2canvas 把角色、完成进度和心得生成分享图；进度和成就保存在 localStorage，不依赖后端，打开即用。</span></li>
+                    <li><span class="b-title">技术实现</span><span class="b-body">Next.js 14 + TypeScript + Tailwind + framer-motion，移动端优先；每日序列由日期和用户 ID 决定，同一天刷新不会换角色。</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
